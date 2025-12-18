@@ -1,81 +1,46 @@
-# MACHINE-LEARNING
+# Dokumentasi Tugas Magang — MACHINE-LEARNING
 
-Repository ini berisi Jupyter notebook dan skrip untuk proyek machine learning (gaya Home Credit).
+**Versi:** 1.0
+**Tanggal:** 2025-12-18
 
-> ⚠️ Data asli **disembunyikan** dari repository. Anda dapat mengakses dan mengunduh dataset resmi dari kompetisi Kaggle berikut:
->
-> https://www.kaggle.com/competitions/home-credit-default-risk/code
+## 1. Ringkasan Eksekutif
 
-## Struktur proyek
+Dokumentasi ini bertujuan untuk menyajikan instruksi formal dan langkah-langkah reproduksi hasil yang dibuat selama pelaksanaan tugas magang pada proyek machine learning (gaya Home Credit). Dokumen mencakup tujuan tugas, ruang lingkup, prasyarat lingkungan, langkah reproduksi eksperimen, format keluaran, dan panduan penyerahan.
 
-- `CODE/` - Notebook dan skrip untuk pra-pemrosesan dan modelling
-- `DATA/` - Folder untuk menempatkan file CSV dataset yang Anda unduh dari Kaggle (tidak disertakan di repo)
-- `OUTPUT/` - Hasil keluaran, mis. `submission_lgb.csv`
+## 2. Tujuan Magang
 
-## Cara mendapatkan data 🔒
+- Membangun pipeline pra-pemrosesan data dan model prediksi risiko kebangkrutan nasabah menggunakan dataset Home Credit.
+- Menghasilkan file submission yang sesuai dengan format kompetisi untuk evaluasi (mis. `submission_lgb.csv`).
+- Menerapkan praktik yang dapat direproduksi, terdokumentasi dengan baik, serta menjaga privasi data sensitif.
 
-1. Kunjungi halaman kompetisi di Kaggle: [Home Credit - Default Risk (Kaggle)](https://www.kaggle.com/competitions/home-credit-default-risk/code)
-2. Bergabung/ikuti kompetisi lalu unduh file dataset (mis. `application_train.csv`, `application_test.csv`, `bureau.csv`, dll.)
-3. Letakkan file-file CSV hasil unduhan ke dalam folder `DATA/` di root repository.
+## 3. Ruang Lingkup Tugas
 
-## Detail Proyek — Data, Tujuan, & Hasil 📄
+- Analisis dan pra-pemrosesan dataset (missing values, feature engineering).
+- Pelatihan model LightGBM untuk prediksi probabilitas default.
+- Evaluasi model menggunakan metrik yang relevan (contoh: AUC-ROC) pada data validasi.
+- Pembuatan file submission sesuai format kompetisi.
 
-### Data — isi utama
-- **`application_train.csv` / `application_test.csv`**: data pelanggan (demografi, pekerjaan, pendapatan, dll.) dan fitur utama untuk prediksi kredit.
-- **`bureau.csv`**: ringkasan riwayat kredit nasabah dari lembaga lain.
-- **`bureau_balance.csv`**: histori status tagihan terkait entri pada `bureau.csv`.
-- **`previous_application.csv`**: riwayat aplikasi kredit sebelumnya oleh pemohon.
-- **`installments_payments.csv`**: catatan pembayaran cicilan untuk aplikasi tertentu.
-- **`POS_CASH_balance.csv`**, **`credit_card_balance.csv`**: data saldo dan perilaku penggunaan kredit pada transaksi ritel dan kartu kredit.
+## 4. Struktur Repository
 
-> Keterangan: file-file di atas merupakan bagian dari dataset kompetisi dan **tidak disertakan** dalam repository; unduh dari halaman kompetisi Kaggle (link tersedia di atas).
+- `CODE/` — Notebook dan skrip (contoh: `data_prep.ipynb`, `lightgbm_modeling.ipynb`)
+- `DATA/` — Tempat menaruh dataset yang diunduh (tidak disertakan dalam repo)
+- `OUTPUT/` — Hasil keluaran seperti `submission_lgb.csv`
+- `requirements.txt` — Daftar dependency Python
+- `README.md` — Panduan umum (Bahasa Indonesia)
+- `INTERNSHIP_DOCUMENTATION.md` — Dokumen formal untuk penyerahan tugas magang
 
-### Tujuan
-- Membangun pipeline pra-pemrosesan dan model prediksi **probabilitas default** (risiko gagal bayar) untuk nasabah baru.
-- Menghasilkan model yang dapat dievaluasi secara reproducible (cross-validation) dan siap menghasilkan file submission untuk kompetisi/penilaian.
-- Menerapkan praktik dokumentasi, versioning dependencies, dan menjaga kerahasiaan data.
+## 5. Prasyarat
 
-### Hasil yang dihasilkan
-- **File submission**: `OUTPUT/submission_lgb.csv` (format sesuai kompetisi; kolom contoh: `SK_ID_CURR`, `TARGET`).
-- **Model artefak**: model yang dilatih (mis. LightGBM), catatan hyperparameter, serta skor evaluasi (mis. mean AUC-ROC pada CV).
-- **Notebook & logs**: notebook terurut di `CODE/` (`data_prep.ipynb`, `lightgbm_modeling.ipynb`) yang menjelaskan langkah pra-pemrosesan, fitur, dan evaluasi.
+- Sistem operasi: Windows / Linux / macOS
+- Python 3.9+ direkomendasikan
+- Dependensi: lihat `requirements.txt`
+- Akun Kaggle dan akses ke kompetisi Home Credit untuk mengunduh dataset
 
-> Catatan: Nilai metrik (mis. AUC-ROC) dan kualitas model dapat bervariasi tergantung strategi feature engineering, pemilihan hyperparameter, dan seed random. Semua keluaran utama disimpan di folder `OUTPUT/`.
+## 6. Cara Mendapatkan Data
 
-## Setup lingkungan (singkat) 🔧
+Data asli tidak disertakan di repository karena pembatasan distribusi. Unduh dataset resmi dari halaman kompetisi:
 
-1. Buat virtual environment:
-   - venv (Windows):
-     ```powershell
-     python -m venv .venv
-     .\.venv\Scripts\activate
-     ```
-   - Conda:
-     ```bash
-     conda create -n ml-env python=3.10
-     conda activate ml-env
-     ```
+https://www.kaggle.com/competitions/home-credit-default-risk/code
 
-2. Install dependensi:
-   ```bash
-   pip install -r requirements.txt
-   ```
+Setelah diunduh, taruh file CSV yang diperlukan ke folder `DATA/` (misal `application_train.csv`, `application_test.csv`, `bureau.csv`, dll.).
 
-3. Jalankan JupyterLab dan buka notebook di `CODE/`:
-   ```bash
-   jupyter lab
-   ```
-
-## Catatan penting 💡
-
-- Jangan commit file dataset (`DATA/`) ke repository publik.
-- Untuk reproduksibilitas, pertimbangkan untuk **men-pin versi** paket di `requirements.txt` atau membuat `environment.yml` untuk Conda.
-
----
-
-Jika Anda mau, saya dapat:
-- Membuat `environment.yml` untuk Conda, atau
-- Mem-pin versi paket di `requirements.txt`, atau
-- Menambahkan `CONTRIBUTING.md` dan `LICENSE`.
-
-Beritahu saya opsi mana yang Anda inginkan.
