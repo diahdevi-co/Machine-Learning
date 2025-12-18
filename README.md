@@ -26,7 +26,6 @@ Dokumentasi ini bertujuan untuk menyajikan instruksi formal dan langkah-langkah 
 - `DATA/` — Tempat menaruh dataset yang diunduh (tidak disertakan dalam repo)
 - `OUTPUT/` — Hasil keluaran seperti `submission_lgb.csv`
 - `requirements.txt` — Daftar dependency Python
-- `README.md` — Panduan umum (Bahasa Indonesia)
 
 ## 5. Prasyarat
 
