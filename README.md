@@ -27,7 +27,6 @@ Dokumentasi ini bertujuan untuk menyajikan instruksi formal dan langkah-langkah 
 - `OUTPUT/` — Hasil keluaran seperti `submission_lgb.csv`
 - `requirements.txt` — Daftar dependency Python
 - `README.md` — Panduan umum (Bahasa Indonesia)
-- `INTERNSHIP_DOCUMENTATION.md` — Dokumen formal untuk penyerahan tugas magang
 
 ## 5. Prasyarat
 

@@ -1,36 +1,79 @@
-# Python
+# =========================
+# Python cache & bytecode
+# =========================
 __pycache__/
 *.py[cod]
+*.pyo
 *.so
 *.egg-info/
 
+# =========================
 # Virtual environments
+# =========================
 .venv/
 env/
 venv/
 
-# Jupyter
+# =========================
+# Jupyter Notebook
+# =========================
 .ipynb_checkpoints/
-*.ipynb
+*.ipynb~
 
-# Data and outputs
+# =========================
+# Data files (do not commit sensitive datasets)
+# =========================
 DATA/
+*.csv
+*.tsv
+*.parquet
+*.feather
 
-# IDEs
+# =========================
+# Outputs & intermediate results
+# =========================
+*.h5
+*.pkl
+*.joblib
+
+# =========================
+# IDE / Editor specific
+# =========================
 .vscode/
 .idea/
+*.sublime-project
+*.sublime-workspace
 
-# OS
+# =========================
+# OS generated files
+# =========================
 .DS_Store
 Thumbs.db
 
-# Env files
+# =========================
+# Environment / secrets
+# =========================
 .env
+.env.*
 
-# Distribution
+# =========================
+# Logs
+# =========================
+*.log
+
+# =========================
+# Distribution / packaging
+# =========================
 dist/
 build/
+*.egg
+*.whl
+*.tar.gz
 
-# Logs and databases
-*.log
-*.sqlite3
+# =========================
+# Keep code, final notebooks, documentation
+# =========================
+# CODE/ and OUTPUT/ are tracked
+*.md
+*.pdf
+*.py
